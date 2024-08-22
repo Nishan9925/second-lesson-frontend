@@ -36,11 +36,7 @@ function App() {
     );
     setBasket(updatedBasket);
   };
-  const getSubTotal = (prod) => {
-    const updatedBasket = basket.map((item) =>
-      item.id === prod.id? {...item, subTotal: item.price * item.count } : item
-    );
-  }
+  
   
   const [products, seProducts] = useState([
     {
@@ -135,7 +131,7 @@ function App() {
                   <td>{item.name}</td>
                   <td>{item.price}</td>
                   <td>{item.count}</td>
-                  <td>{item.count} * {item.price}</td>
+                  <td>{item.count * item.price}</td>
                   <td className="actions-td">
                     <button onClick={() => increaseItemInCart(item)}>+</button>
                     <button onClick={() => decreaseItemInCart(item)}>-</button>
